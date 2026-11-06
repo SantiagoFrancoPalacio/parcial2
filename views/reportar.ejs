@@ -1,0 +1,40 @@
+<%- include('partials/header') %>
+
+<div class="row justify-content-center">
+  <div class="col-md-8 col-lg-6">
+
+    <% if (exito) { %>
+      <div class="alert alerta-exito alert-dismissible fade show" role="alert">
+        🎉 ¡Tu reporte fue guardado correctamente! Pronto lo atenderemos.
+        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+      </div>
+    <% } %>
+
+    <div class="card card-form">
+      <div class="card-header">
+        <h3 class="mb-0">🚨 Reportar Falla</h3>
+        <small>Cuéntanos qué está pasando</small>
+      </div>
+      <div class="card-body p-4">
+        <form action="/reportar" method="POST">
+          <div class="mb-3">
+            <label for="solicitante" class="form-label">👤 Nombre del solicitante</label>
+            <input type="text" class="form-control" id="solicitante" name="solicitante" placeholder="Ej: Juan Pérez" required>
+          </div>
+          <div class="mb-3">
+            <label for="ubicacion" class="form-label">📍 Aula / Ubicación</label>
+            <input type="text" class="form-control" id="ubicacion" name="ubicacion" placeholder="Ej: Oval 2" required>
+          </div>
+          <div class="mb-4">
+            <label for="descripcion" class="form-label">💬 Descripción del problema</label>
+            <textarea class="form-control" id="descripcion" name="descripcion" rows="4" placeholder="Ej: El proyector no enciende" required></textarea>
+          </div>
+          <button type="submit" class="btn btn-divertido w-100">🚀 Enviar reporte</button>
+        </form>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<%- include('partials/footer') %>
